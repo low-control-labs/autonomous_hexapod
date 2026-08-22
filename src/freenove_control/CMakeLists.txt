@@ -30,6 +30,9 @@ endif()
 add_executable(joint_to_servo_adapter src/joint_to_servo_adapter.cpp)
 ament_target_dependencies(joint_to_servo_adapter rclcpp sensor_msgs std_msgs)
 
+add_executable(pca9685_driver src/pca9685_driver.cpp)
+ament_target_dependencies(pca9685_driver rclcpp std_msgs)
+
 install(
   DIRECTORY config
   DESTINATION share/${PROJECT_NAME}
@@ -37,6 +40,7 @@ install(
 
 install(TARGETS
   joint_to_servo_adapter
+  pca9685_driver
   DESTINATION lib/${PROJECT_NAME}
 )
 

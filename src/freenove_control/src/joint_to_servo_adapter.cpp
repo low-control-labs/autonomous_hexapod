@@ -73,7 +73,7 @@ private:
 
     void jointStateCallback(const sensor_msgs::msg::JointState::SharedPtr msg) {
         auto cmd_array = std_msgs::msg::Float64MultiArray();
-        cmd_array.data.resize(20, 90.0); // default 90 degrees for the 20 servomotors
+        cmd_array.data.resize(32, 90.0); // default 90 degrees for all the 32 i2c addresses
 
         for (size_t i = 0; i < msg->name.size(); ++i) {
             const std::string & joint_name = msg->name[i];
@@ -87,7 +87,9 @@ private:
                 // security clamp for mechanical limits
                 deg = std::clamp(deg, cfg.min_deg, cfg.max_deg);
 
-                cmd_array.data[cfg.channel] = deg;
+                if (cfg.channel >= 0 && cfg.channel < 32) {
+                    cmd_array.data[cfg.channel] = deg;
+                }
             }
         }
 
