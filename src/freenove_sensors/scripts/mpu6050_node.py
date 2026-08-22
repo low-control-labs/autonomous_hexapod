@@ -31,7 +31,7 @@ class MPU6050Node(Node):
         
         imu_msg = Imu()
         imu_msg.header.stamp = self.get_clock().now().to_msg()
-        imu_msg.header.frame_id = 'imu_link'
+        imu_msg.header.frame_id = 'imu'
 
         # Accel in m/s^2, Gyro in rad/s
         imu_msg.linear_acceleration.x = a['x'] - self.offset_accel['x']

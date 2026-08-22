@@ -11,9 +11,17 @@ controller_manager:
 leg_controller:
   ros__parameters:
     joints:
-      - motor27
-      - motor23
+      - motor0
+      - motor1
+      - motor16
+      - motor17
+      - motor18
+      - motor19
+      - motor20
+      - motor21
       - motor22
+      - motor23
+      - motor27
       - motor9
       - motor8
       - motor31
@@ -23,11 +31,3 @@ leg_controller:
       - motor15
       - motor14
       - motor13
-      - motor0
-      - motor1
-      - motor16
-      - motor17
-      - motor18
-      - motor19
-      - motor20
-      - motor21

@@ -96,6 +96,13 @@ def generate_launch_description():
         output='screen'
     )
 
+    kinematics_node = Node(
+        package='freenove_kinematics',
+        executable='hexapod_gait_node',
+        name='gait_node',
+        output='screen'
+    )
+
     return LaunchDescription([
         set_gz_resource_path,
         robot_state_publisher,
